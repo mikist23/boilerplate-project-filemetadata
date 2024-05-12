@@ -14,7 +14,11 @@ app.get('/', function (req, res) {
   res.sendFile(process.cwd() + '/views/index.html');
 });
 
-
+// Handle file upload
+app.post('/api/fileanalyse', upload.single('upfile'), function(req, res) {
+  if (!req.file) {
+    return res.status(400).json({ error: 'No file uploaded' });
+  }
 
 
 
