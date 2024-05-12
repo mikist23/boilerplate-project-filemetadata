@@ -1,8 +1,11 @@
 var express = require('express');
 var cors = require('cors');
 require('dotenv').config()
+var multer = require('multer');
 
 var app = express();
+var upload = multer({ dest: 'uploads/' }); // Destination folder for file uploads
+
 
 app.use(cors());
 app.use('/public', express.static(process.cwd() + '/public'));
